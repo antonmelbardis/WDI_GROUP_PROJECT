@@ -1,2 +1,4 @@
 # WDI_GROUP_PROJECT
 HEROES AND ZEROES
+
+Chris's bits!
