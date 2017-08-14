@@ -7,7 +7,9 @@ const userSchema = new mongoose.Schema({
   firstName: { type: String, trim: true},
   lastName: { type: String, trim: true},
   email: { type: String, unique: true, trim: true, required: true},
-  passwordHash: { type: String, required: true}
+  passwordHash: { type: String, required: true},
+  myAllotments: [{ type: mongoose.Schema.ObjectId, ref: 'Allotment'}],
+  otherDetails: { type: String, trim: true}
   // buyer: { type: Boolean, required: true},
   // seller: { type: Boolean, required: true},
   // profilePicture: { type: String, trim: true}
