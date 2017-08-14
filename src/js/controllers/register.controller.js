@@ -13,7 +13,7 @@ function RegisterCtrl(User, CurrentUserService, $state){
     .$promise
     .then(() => {
       CurrentUserService.getUser();
-      $state.go('userIndex');
+      $state.go('usersIndex');
     });
   }
 }
