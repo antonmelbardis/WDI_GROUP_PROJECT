@@ -28,6 +28,13 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/main-states/featured.html',
     controller: 'FeaturedCtrl',
     controllerAs: 'featured'
+  })
+
+  .state('listAllotments', {
+    url: '/listAllotments',
+    templateUrl: '/js/views/main-states/new-farmer.html',
+    controller: 'ListAllotmentsCtrl',
+    controllerAs: 'ListAllotmentsCtrl'
   });
 
   $urlRouterProvider.otherwise('/');
