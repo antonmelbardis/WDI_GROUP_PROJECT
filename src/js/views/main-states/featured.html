@@ -3,24 +3,38 @@
 <main>
 <form>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search..." ng-model="FeaturedCtrl.NearestPostcode">
+    <input type="text" class="form-control" placeholder="Search Postcode..." ng-model="FeaturedCtrl.NearestPostcode">
+  </div>
+  <p>or</p>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search Crops..." ng-model="FeaturedCtrl.cropName">
   </div>
 </form>
 
-
 <!-- <div class="media" ng-repeat="allotment in allotment.allotments[0].result.records"> -->
 <div class="media" ng-repeat="allotment in FeaturedCtrl.allotmentsFiltered">
+  <div class="media-left">
+  </div>
+  <div class="media-body">
+    <a ui-sref="allotmentProfile"><h4 class="media-heading">{{ allotment.Name | uppercase }}</h4></a>
+    <p>{{ allotment.Location }}</p>
+    <p>{{ allotment.NearestPostcode }}</p>
+    <p>{{ allotment.Borough }}</p>
+    <!-- <p>{{ allotment.Latitude}}</p>
+    <p>{{ allotment.Longitude }}</p> -->
+  </div>
+</div>
+
+<div style="display: inline-block" class="media" ng-repeat="crop in FeaturedCtrl.cropsFiltered">
   <div class="media-left">
     <a ui-sref="#">
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading">{{ allotment.Name | uppercase }}</h4>
-    <p>{{ allotment.Location }}</p>
-    <p>{{ allotment.NearestPostcode }}</p>
-    <p>{{ allotment.Borough }}</p>
-    <p>{{ allotment.Latitude}}</p>
-    <p>{{ allotment.Longitude }}</p>
+    <h4 class="media-heading">{{ crop.name | uppercase }}</h4>
+    <p>{{ crop.description }}</p>
+    <p>{{ crop.image }}</p>
+    <p>{{ crop.thumbnail }}</p>
   </div>
 </div>
 </main>

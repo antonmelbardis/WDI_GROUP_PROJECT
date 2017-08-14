@@ -4,6 +4,7 @@ const router = express.Router();
 const authentications = require('../controllers/authentications');
 const users = require('../controllers/users');
 const allotments = require('../controllers/allotments');
+const crops = require('../controllers/crops');
 
 router.route('/register')
 .post(authentications.register);
@@ -19,5 +20,8 @@ router.route('/users/:id')
 
 router.route('/allotments')
 .get(allotments.index);
+
+router.route('/crops')
+.get(crops.index);
 
 module.exports = router;
