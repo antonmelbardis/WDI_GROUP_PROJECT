@@ -12,8 +12,6 @@ function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService
 
   vm.destination = 'ec1y4ab';
   vm.origin = vm.user.postcode;
-  console.log(vm.user.postcode);
-
 
   const service = new google.maps.DistanceMatrixService();
   service.getDistanceMatrix(
@@ -27,7 +25,6 @@ function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService
     console.log(response);
   }
 
-
   getAllotment();
   getCrops();
 
@@ -36,11 +33,9 @@ function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService
     $http.get('http://localhost:7000/api/allotments')
     .then((res) => {
       vm.allotments = res.data;
-      console.log(vm.allotments);
       startWatch();
     });
   }
-
   function filterAllotment() {
     const params = {
       nearestPostcode: vm.nearestPostcode

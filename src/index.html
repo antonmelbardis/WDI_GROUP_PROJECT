@@ -30,7 +30,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li ng-show="main.user">
-                <p class="navbar-text">Welcome, {{ main.user.username }}</p>
+                <p class="navbar-text">Welcome, <a ui-sref="userShow({id: main.user._id})">{{ main.user.username }}</a></p>
               </li>
 <!--WHEN THE MAIN USER IS LOGGED IN HIDE REGISTER  -->
               <li ng-hide="main.user">
@@ -39,7 +39,6 @@
 <!--WHEN THE MAIN USER IS LOGGED IN HIDE LOGIN  -->
               <li ng-hide="main.user">
                 <a ui-sref="login">Login</a>
-
               </li>
               <li ng-show="main.user">
                 <a ui-sref="featured">Featured</a>

@@ -14,7 +14,7 @@ function AllotmentProfileCtrl(Allotment, $state, $stateParams, CurrentUserServic
 
   vm.selectedAllotment = Allotment.get({ id: $stateParams.id });
 
-
+////////// ADDING ALLOTMENTS TO 'MY-ALLOTMENTS ARRAY' //////////
   function checkSaveState() {
     if (vm.user.allotments.indexOf(vm.selectedAllotment._id) !== -1) {
       return true;
@@ -22,7 +22,6 @@ function AllotmentProfileCtrl(Allotment, $state, $stateParams, CurrentUserServic
       return false;
     }
   }
-
   function addToMyAllotment() {
     Allotment
       .saveAllotment({ id: $stateParams.id, userId: vm.user._id })

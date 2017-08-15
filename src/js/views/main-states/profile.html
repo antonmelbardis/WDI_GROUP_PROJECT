@@ -1,36 +1,31 @@
-<h1>{{ UserShowCtrl.user.username }}</h1>
-
-<ul ng-repeat="item in UserShowCtrl.forSale">
-  <li>{{item}}</li>
-</ul>
+<div>
+  <h1>{{ UserShowCtrl.user.username }}</h1>
+  <a href="mailto:{{UserShowCtrl.user.email}}">Contact {{UserShowCtrl.user.username}}</a>
+</div>
 <hr>
-<ul ng-repeat="place in UserShowCtrl.allotments">
-  <li>{{place}}</li>
-</ul>
 
-<!-- <main>
+<div style="display: inline-block">
+  <h4>Crops for sale</h4>
+  <ul ng-repeat="item in UserShowCtrl.forSale">
+    <li>{{item}}</li>
+  </ul>
+</div>
+
+<div style="display: inline-block">
+  <h4>Find me at this allotment</h4>
+  <ul ng-repeat="place in UserShowCtrl.allotments">
+    <li>{{place}}</li>
+  </ul>
+</div>
+<hr>
+
+<h4>Add more crops to my selling list...</h4>
   <form>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search Postcode..." ng-model="FeaturedCtrl.nearestPostcode">
-    </div>
-    <p>or</p>
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search Crops..." ng-model="FeaturedCtrl.cropName">
+      <input type="text" class="form-control" placeholder="Search Crops..." ng-model="UserShowCtrl.cropName">
     </div>
   </form>
-
-  <div ng-show="FeaturedCtrl.nearestPostcode.length > 0" class="media" ng-repeat="allotment in FeaturedCtrl.allotmentsFiltered">
-    <div class="media-left">
-    </div>
-    <div class="media-body">
-      <a ui-sref="allotmentProfile({id: allotment._id})"><h4 class="media-heading">{{ allotment.name | uppercase }}</h4></a>
-      <p>{{ allotment.location }}</p>
-      <p>{{ allotment.nearestPostcode }}</p>
-      <p>{{ allotment.borough }}</p>
-    </div>
-  </div>
-
-  <div ng-show="FeaturedCtrl.cropName.length > 0" class="media" ng-repeat="crop in FeaturedCtrl.cropsFiltered">
+  <div ng-show="UserShowCtrl.cropName.length > 0" class="media" ng-repeat="crop in UserShowCtrl.cropsFiltered">
     <div class="media-left">
     </div>
     <div class="media-body">
@@ -38,4 +33,3 @@
       <p>{{ crop.description }}</p>
     </div>
   </div>
-</main> -->
