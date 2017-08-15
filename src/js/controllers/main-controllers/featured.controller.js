@@ -12,7 +12,8 @@ function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService
 
   vm.destination = 'ec1y4ab';
   vm.origin = vm.user.postcode;
-  vm.destination = vm.destination;
+  console.log(vm.user.postcode);
+
 
   const service = new google.maps.DistanceMatrixService();
   service.getDistanceMatrix(

@@ -34,6 +34,18 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/main-states/allotment-profile.html',
     controller: 'AllotmentProfileCtrl',
     controllerAs: 'AllotmentProfileCtrl'
+  })
+  .state('cropShow', {
+    url: '/crop/:id',
+    templateUrl: '/js/views/main-states/crop-show.html',
+    controller: 'CropShowCtrl',
+    controllerAs: 'CropShowCtrl'
+  })
+  .state('userShow', {
+    url: '/user/:id',
+    templateUrl: '/js/views/main-states/profile.html',
+    controller: 'UserShowCtrl',
+    controllerAs: 'UserShowCtrl'
   });
 
   $urlRouterProvider.otherwise('/');

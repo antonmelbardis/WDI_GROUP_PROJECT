@@ -1,0 +1,41 @@
+<h1>{{ UserShowCtrl.user.username }}</h1>
+
+<ul ng-repeat="item in UserShowCtrl.forSale">
+  <li>{{item}}</li>
+</ul>
+<hr>
+<ul ng-repeat="place in UserShowCtrl.allotments">
+  <li>{{place}}</li>
+</ul>
+
+<!-- <main>
+  <form>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search Postcode..." ng-model="FeaturedCtrl.nearestPostcode">
+    </div>
+    <p>or</p>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search Crops..." ng-model="FeaturedCtrl.cropName">
+    </div>
+  </form>
+
+  <div ng-show="FeaturedCtrl.nearestPostcode.length > 0" class="media" ng-repeat="allotment in FeaturedCtrl.allotmentsFiltered">
+    <div class="media-left">
+    </div>
+    <div class="media-body">
+      <a ui-sref="allotmentProfile({id: allotment._id})"><h4 class="media-heading">{{ allotment.name | uppercase }}</h4></a>
+      <p>{{ allotment.location }}</p>
+      <p>{{ allotment.nearestPostcode }}</p>
+      <p>{{ allotment.borough }}</p>
+    </div>
+  </div>
+
+  <div ng-show="FeaturedCtrl.cropName.length > 0" class="media" ng-repeat="crop in FeaturedCtrl.cropsFiltered">
+    <div class="media-left">
+    </div>
+    <div class="media-body">
+      <a ui-sref="cropShow({id: crop._id})"><h4 class="media-heading">{{ crop.name | uppercase }}</h4></a>
+      <p>{{ crop.description }}</p>
+    </div>
+  </div>
+</main> -->

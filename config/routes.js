@@ -28,5 +28,9 @@ router.route('/allotments/:id/save/:userId')
 
 router.route('/crops')
 .get(crops.index);
+router.route('/crops/:id')
+.get(crops.show);
+router.route('/crops/:id/save/:userId')
+.get(crops.save);
 
 module.exports = router;

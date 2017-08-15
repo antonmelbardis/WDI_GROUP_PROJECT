@@ -31,11 +31,10 @@
     <div class="media-left">
     </div>
     <div class="media-body">
-      <h4 class="media-heading">{{ crop.name | uppercase }}</h4>
+      <a ui-sref="cropShow({id: crop._id})"><h4 class="media-heading">{{ crop.name | uppercase }}</h4></a>
       <p>{{ crop.description }}</p>
-      <p>{{ crop.image }}</p>
-      <p>{{ crop.thumbnail }}</p>
-      <a href="#">Find {{crop.name}}'s near you...</a>
+      <!-- <p>{{ crop.image }}</p>
+      <p>{{ crop.thumbnail }}</p> -->
     </div>
   </div>
 </main>
