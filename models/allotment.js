@@ -8,6 +8,7 @@ const allotmentSchema = new mongoose.Schema({
   Latitude: { type: String, unique: true, trim: true, required: true},
   Longitude: { type: String, unique: true, trim: true, required: true},
   _id: { type: Number, unique: true, required: true}
+  // forSaleHere
 });
 
 module.exports = mongoose.model('Allotment', allotmentSchema);

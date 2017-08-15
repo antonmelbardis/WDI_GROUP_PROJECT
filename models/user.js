@@ -10,6 +10,9 @@ const userSchema = new mongoose.Schema({
   passwordHash: { type: String, required: true},
   myAllotments: [{ type: mongoose.Schema.ObjectId, ref: 'Allotment'}],
   otherDetails: { type: String, trim: true}
+  // buyer/farmer array
+  // forSale array
+  // postcode
   // buyer: { type: Boolean, required: true},
   // seller: { type: Boolean, required: true},
   // profilePicture: { type: String, trim: true}
