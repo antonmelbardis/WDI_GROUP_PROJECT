@@ -21,6 +21,7 @@
     "angular-animate": "^1.6.5",
     "angular-ui-router": "^1.0.5",
     "angular-resource": "^1.6.5",
-    "angular-jwt": "^0.1.9"
-    }
+    "angular-jwt": "^0.1.9",
+    "angular-google-distance": "*"
+  }
 }
