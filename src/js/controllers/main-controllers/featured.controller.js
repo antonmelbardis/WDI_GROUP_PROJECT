@@ -11,7 +11,7 @@ function FeaturedCtrl(Allotments, filterFilter, $scope, $http, CurrentUserServic
   vm.user = CurrentUserService.currentUser;
 
   vm.destination = 'ec1y4ab';
-  vm.origin = vm.user.firstName;
+  vm.origin = vm.user.postcode;
   vm.destination = vm.destination;
 
   const service = new google.maps.DistanceMatrixService();
@@ -34,20 +34,21 @@ function FeaturedCtrl(Allotments, filterFilter, $scope, $http, CurrentUserServic
   function getAllotments() {
     $http.get('http://localhost:7000/api/allotments')
     .then((res) => {
-      vm.allotments = res.data[0].result.records;
+      vm.allotments = res.data;
+      console.log(vm.allotments);
       startWatch();
     });
   }
 
   function filterAllotments() {
     const params = {
-      NearestPostcode: vm.NearestPostcode
+      nearestPostcode: vm.nearestPostcode
     };
     vm.allotmentsFiltered = filterFilter(vm.allotments, params);
   }
   function startWatch() {
     $scope.$watchGroup([
-      () => vm.NearestPostcode
+      () => vm.nearestPostcode
     ], filterAllotments);
   }
 
