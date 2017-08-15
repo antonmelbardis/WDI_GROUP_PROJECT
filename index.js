@@ -25,7 +25,8 @@ app.use('/api', expressJWT({secret: config.secret})
   path: [
     { url: '/api/register', methods: ['POST']},
     { url: '/api/login', methods: ['POST']},
-    { url: '/api/allotments', methods: ['GET']}
+    { url: '/api/allotments', methods: ['GET']},
+    { url: '/api/crops', methods: ['GET']}
   ]
 }));
 

@@ -8,7 +8,7 @@ function CurrentUserService(TokenService, User, $rootScope) {
 
   self.getUser = () => {
     const decoded = TokenService.decodeToken();
-    console.log(decoded); //B.
+    // console.log(decoded);
     if (decoded) {
       User // this is the factory
       .get({ id: decoded.id })
