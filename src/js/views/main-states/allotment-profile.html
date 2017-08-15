@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-6">
+    <img ng-src="{{ allotmentProfile.allotment.image }}">
+  </div>
+
+
+  <div class="col-md-6">
+    <h2>{{ allotmentProfile.allotment.name }}</h2>
+    <p><strong>{{allotmentProfile.allotment.location }} {{allotmentProfile.allotment.postcode}} {{ allotmentProfile.allotment.borough}}</strong> </p>
+
+    <div>
+      <p>{{allotmentProfile.allotment.product}}</p>
+    </div>
+
+    <br>
+    <p>  {{allotmentProfile.allotment.contact}} Contact This Allotment </p>
+    <button ng-click="show.back()">Back</button>
+
+  </div>
+</div>
