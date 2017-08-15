@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   otherDetails: { type: String, trim: true},
   forSale: { type: Array },
   postCode: { type: String},
-  buyer: [{}]
+  role: []
 
 
   // buyer: { type: Boolean, required: true},
