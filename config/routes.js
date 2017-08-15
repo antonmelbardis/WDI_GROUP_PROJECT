@@ -20,6 +20,11 @@ router.route('/users/:id')
 
 router.route('/allotments')
 .get(allotments.index);
+router.route('/allotments/:id')
+.get(allotments.show);
+
+router.route('/allotments/:id/save/:userId')
+  .get(allotments.save);
 
 router.route('/crops')
 .get(crops.index);

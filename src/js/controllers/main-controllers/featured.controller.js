@@ -2,9 +2,9 @@ angular
 .module('WDI_Group_Project')
 .controller('FeaturedCtrl', FeaturedCtrl);
 
-FeaturedCtrl.$inject = ['Allotments','filterFilter', '$scope', '$http', 'CurrentUserService'];
+FeaturedCtrl.$inject = ['Allotment','filterFilter', '$scope', '$http', 'CurrentUserService'];
 
-function FeaturedCtrl(Allotments, filterFilter, $scope, $http, CurrentUserService){
+function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService){
   const vm = this;
   vm.allotments = [];
   vm.crops = [];
@@ -27,11 +27,11 @@ function FeaturedCtrl(Allotments, filterFilter, $scope, $http, CurrentUserServic
   }
 
 
-  getAllotments();
+  getAllotment();
   getCrops();
 
     ///////// GET ALLOTMENTS AND ADD WATCH FOR USER INPUT /////////
-  function getAllotments() {
+  function getAllotment() {
     $http.get('http://localhost:7000/api/allotments')
     .then((res) => {
       vm.allotments = res.data;
@@ -40,7 +40,7 @@ function FeaturedCtrl(Allotments, filterFilter, $scope, $http, CurrentUserServic
     });
   }
 
-  function filterAllotments() {
+  function filterAllotment() {
     const params = {
       nearestPostcode: vm.nearestPostcode
     };
@@ -49,7 +49,7 @@ function FeaturedCtrl(Allotments, filterFilter, $scope, $http, CurrentUserServic
   function startWatch() {
     $scope.$watchGroup([
       () => vm.nearestPostcode
-    ], filterAllotments);
+    ], filterAllotment);
   }
 
   //////////// GET CROPS AND ADD WATCH FOR USER INPUT ////////////

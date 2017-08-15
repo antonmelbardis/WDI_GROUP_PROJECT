@@ -30,7 +30,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controllerAs: 'FeaturedCtrl'
   })
   .state('allotmentProfile', {
-    url: 'allotment/:id',
+    url: '/allotment/:id',
     templateUrl: '/js/views/main-states/allotment-profile.html',
     controller: 'AllotmentProfileCtrl',
     controllerAs: 'AllotmentProfileCtrl'

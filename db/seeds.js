@@ -17,7 +17,7 @@ globalObj.count = 1;
 
 let newInterval = setInterval(saveCrops, 1000);
 
-function saveAllotments() {
+function saveAllotment() {
 
   globalObj.options = {
     uri: `http://api.datapress.io/api/3/action/datastore_search?resource_id=b40c84cf-be67-4b99-bff4-c3ff08b37698&limit=800`,
@@ -59,7 +59,7 @@ function saveDummyData() {
     password: 'password',
     passwordConfirmation: 'password',
     postcode: 'ec1y4ab',
-    myAllotments: []
+    myAllotment: []
   },{
     username: 'ccatley2',
     firstName: 'Chris',
@@ -68,7 +68,7 @@ function saveDummyData() {
     password: 'password',
     passwordConfirmation: 'password',
     postcode: 'se192ab',
-    myAllotments: [],
+    myAllotment: [],
     otherDetails: 'lorem dasdljfdshljfdhsaljkfgfdlsajkfdljksafdshjafjdsfdhskljfksda'
   }])
   .then(users => {
@@ -77,7 +77,7 @@ function saveDummyData() {
     .findOne({name: 'Abbots Way'})
     .exec()
     .then(allotment => {
-      users[0].myAllotments.push(allotment._id);
+      users[0].myAllotment.push(allotment._id);
       users[0].save();
       console.log(users[0]);
     })
@@ -134,4 +134,4 @@ function saveDbItems(crop) {
   });
 }
 
-saveAllotments();
+saveAllotment();

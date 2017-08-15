@@ -16,8 +16,9 @@
     <div class="media-left">
     </div>
     <div class="media-body">
-      <a ui-sref="allotmentProfile"><h4 class="media-heading">{{ allotment.name | uppercase }}</h4></a>
+      <a ui-sref="allotmentProfile({id: allotment._id})"><h4 class="media-heading">{{ allotment.name | uppercase }}</h4></a>
       <p>{{ allotment.location }}</p>
+
       <p>{{ allotment.nearestPostcode }}</p>
       <p>{{ allotment.borough }}</p>
 

@@ -1,7 +1,9 @@
 angular.module('WDI_Group_Project')
-  .factory('Allotments', Allotments);
+  .factory('Allotment', Allotment);
 
-Allotments.$inject = ['API', '$resource'];
-function Allotments(API, $resource) {
-  return $resource(`${API}/allotments/:id`, { id: '@_id'});
+Allotment.$inject = ['API', '$resource'];
+function Allotment(API, $resource) {
+  return $resource(`${API}/allotments/:id`, { id: '@_id'}, {
+    'saveAllotment': { method: 'GET', url: `${API}/allotments/:id/save/:userId`}
+  });
 }
