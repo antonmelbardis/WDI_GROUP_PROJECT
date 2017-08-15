@@ -3,7 +3,6 @@ const router = express.Router();
 
 const authentications = require('../controllers/authentications');
 const users = require('../controllers/users');
-// const allotments = require('../controllers/allotments');
 
 router.route('/register')
 .post(authentications.register);
@@ -16,10 +15,5 @@ router.route('/users/:id')
 .get(users.show)
 .put(users.update)
 .delete(users.delete);
-
-// router.route('/allotments')
-// .get(allotments.index);
-// router.route('/allotments/:id')
-//   .get(allotments.show);
 
 module.exports = router;
