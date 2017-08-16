@@ -21,7 +21,6 @@ function UserShowCtrl(User, $http, $stateParams, CurrentUserService, $state, Cro
   .$promise
   .then(seller => {
     vm.seller = seller;
-    // console.log(vm.seller);
     vm.seller.forSale.forEach(function(crop) {
       vm.cropForSale = Crop.get({ id: crop});
       vm.cropArray.push(vm.cropForSale);
