@@ -77,7 +77,7 @@ function saveDummyData() {
     .findOne({name: 'Abbots Way'})
     .exec()
     .then(allotment => {
-      users[0].myAllotment.push(allotment._id);
+      users[0].allotments.push(allotment._id);
       users[0].save();
       console.log(users[0]);
     })

@@ -1,35 +1,55 @@
 <h1>Featured</h1>
 <hr>
 <main>
-  <form>
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search Postcode..." ng-model="FeaturedCtrl.nearestPostcode">
-    </div>
-    <p>or</p>
+  <div ng-hide="FeaturedCtrl.user.allotments.length">
+    <h2>Add your allotment below...</h2>
+    <form class="" action="index.html" method="post">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Postcode..." ng-model="FeaturedCtrl.nearestPostcode">
+      </div>
+    </form>
 
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search Crops..." ng-model="FeaturedCtrl.cropName">
-    </div>
-    
-  </form>
-
-  <div ng-show="FeaturedCtrl.nearestPostcode.length > 0" class="media" ng-repeat="allotment in FeaturedCtrl.allotmentsFiltered">
-    <div class="media-left">
-    </div>
-    <div class="media-body">
-      <a ui-sref="allotmentProfile({id: allotment._id})"><h4 class="media-heading">{{ allotment.name | uppercase }}</h4></a>
-      <p>{{ allotment.location }}</p>
-      <p>{{ allotment.nearestPostcode }}</p>
-      <p>{{ allotment.borough }}</p>
+    <div ng-show="FeaturedCtrl.nearestPostcode.length > 0" class="media" ng-repeat="allotment in FeaturedCtrl.allotmentsFiltered">
+      <div class="media-left">
+      </div>
+      <div class="media-body">
+        <a ui-sref="allotmentProfile({id: allotment._id})"><h4 class="media-heading">{{ allotment.name | uppercase }}</h4></a>
+        <p>{{ allotment.location }}</p>
+        <p>{{ allotment.nearestPostcode }}</p>
+        <p>{{ allotment.borough }}</p>
+      </div>
     </div>
   </div>
 
-  <div ng-show="FeaturedCtrl.cropName.length > 0" class="media" ng-repeat="crop in FeaturedCtrl.cropsFiltered">
-    <div class="media-left">
-    </div>
-    <div class="media-body">
-      <a ui-sref="cropShow({id: crop._id})"><h4 class="media-heading">{{ crop.name | uppercase }}</h4></a>
-      <p>{{ crop.description }}</p>
+  <!-- /////////////////////////////// -->
+
+  <div ng-show="FeaturedCtrl.user.allotments.length">
+    <ul>
+      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc2a'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
+      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc23'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
+      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc4c'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
+      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc59'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
+      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc4d'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
+      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc2f'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
+      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc27'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
+      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc3b'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
+    </ul>
+
+    <h2>Search Crops to Buy/Sell...</h2>
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Crops..." ng-model="FeaturedCtrl.cropName">
+      </div>
+    </form>
+
+    <div ng-show="FeaturedCtrl.cropName.length > 0" class="media" ng-repeat="crop in FeaturedCtrl.cropsFiltered">
+      <div class="media-left">
+      </div>
+      <div class="media-body">
+        <a ui-sref="cropShow({id: crop._id})"><h4 class="media-heading">{{ crop.name | uppercase }}</h4></a>
+        <p>{{ crop.description }}</p>
+      </div>
     </div>
   </div>
+
 </main>

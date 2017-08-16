@@ -22,18 +22,33 @@ function allotmentsShow(req, res) {
   });
 }
 
+// function allotmentsSave(req, res) {
+//   User
+//     .findById(req.params.userId)
+//     .exec()
+//     .then(user => {
+//       if (user.allotments.indexOf(req.params.id) === -1) {
+//         user.allotments.push(req.params.id);
+//         user.save();
+//
+//         res.status(200).json(user);
+//       } else {
+//         res.status(422).json({ message: 'allotment already saved.'});
+//       }
+//     })
+//     .catch(err => res.status(500).json(err));
+// }
 function allotmentsSave(req, res) {
   User
     .findById(req.params.userId)
     .exec()
     .then(user => {
-      if (user.allotments.indexOf(req.params.id) === -1) {
+      if (user.allotments.length === 0) {
         user.allotments.push(req.params.id);
         user.save();
-
         res.status(200).json(user);
       } else {
-        res.status(422).json({ message: 'allotment already saved.'});
+        res.status(422).json({ message: 'You already have an allotment'});
       }
     })
     .catch(err => res.status(500).json(err));

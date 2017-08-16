@@ -14,6 +14,21 @@ function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User) {
   vm.sellingUsers   = [];
   vm.selectedCrop   = Crop.get({ id: $stateParams.id });
 
+  vm.origin = vm.user.postcode;
+  vm.destination = 'se192ab';
+  
+  const service = new google.maps.DistanceMatrixService();
+  service.getDistanceMatrix(
+    {
+      origins: [vm.origin],
+      destinations: [vm.destination],
+      travelMode: 'DRIVING'
+    }, getDistance);
+
+  function getDistance(response) {
+    console.log(response.rows[0].elements[0].distance.text);
+  }
+
   getUsers();
   function checkSaveState() {
     if (vm.user.forSale.indexOf(vm.selectedCrop._id) !== -1) {

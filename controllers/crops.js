@@ -31,7 +31,6 @@ function cropsSave(req, res) {
       if (user.forSale.indexOf(req.params.id) === -1) {
         user.forSale.push(req.params.id);
         user.save();
-
         res.status(200).json(user);
       } else {
         res.status(422).json({ message: 'Crop already saved.'});

@@ -10,10 +10,8 @@ const userSchema = new mongoose.Schema({
   passwordHash: { type: String, required: true},
   postcode: { type: String, required: true},
   allotments: [{ type: mongoose.Schema.ObjectId, ref: 'Allotment'}],
-  otherDetails: { type: String, trim: true},
   forSale: [{ type: mongoose.Schema.ObjectId, ref: 'Crop'}],
-  postCode: { type: String},
-  role: []
+  postCode: { type: String}
 
 
   // buyer: { type: Boolean, required: true},

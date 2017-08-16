@@ -2,34 +2,16 @@ angular
 .module('WDI_Group_Project')
 .controller('FeaturedCtrl', FeaturedCtrl);
 
-FeaturedCtrl.$inject = ['Allotment','filterFilter', '$scope', '$http', 'CurrentUserService', 'User'];
+FeaturedCtrl.$inject = ['Allotment','filterFilter', '$scope', '$http', 'CurrentUserService'];
 
-function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService, User){
+function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService){
   const vm = this;
-  vm.allotments = [];
   vm.crops = [];
   vm.user = CurrentUserService.currentUser;
-  console.log(vm.user.role);
+  
 
-  vm.destination = 'se192ab';
-  vm.origin = vm.user.postcode;
-
-  const service = new google.maps.DistanceMatrixService();
-  service.getDistanceMatrix(
-    {
-      origins: [vm.origin],
-      destinations: [vm.destination],
-      travelMode: 'DRIVING'
-    }, getDistance);
-
-  function getDistance(response) {
-    console.log(response.rows[0].elements[0].distance.text);
-  }
-
+  ///////// GET ALLOTMENTS AND ADD WATCH FOR USER INPUT /////////
   getAllotment();
-  getCrops();
-
-    ///////// GET ALLOTMENTS AND ADD WATCH FOR USER INPUT /////////
   function getAllotment() {
     $http.get('http://localhost:7000/api/allotments')
     .then((res) => {
@@ -43,6 +25,7 @@ function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService
     };
     vm.allotmentsFiltered = filterFilter(vm.allotments, params);
   }
+
   function startWatch() {
     $scope.$watchGroup([
       () => vm.nearestPostcode
@@ -50,6 +33,7 @@ function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService
   }
 
   //////////// GET CROPS AND ADD WATCH FOR USER INPUT ////////////
+  getCrops();
   function getCrops() {
     $http.get('http://localhost:7000/api/crops')
     .then((res) => {
