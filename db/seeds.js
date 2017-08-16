@@ -10,12 +10,12 @@ const Allotment = require('../models/allotment');
 User.collection.drop();
 Crop.collection.drop();
 Allotment.collection.drop();
-mongoose.connect(config.db);
+mongoose.connect(config.db.development);
 
 const globalObj = {};
 globalObj.count = 1;
 
-let newInterval = setInterval(saveCrops, 1000);
+let newInterval = setInterval(saveCrops, 2000);
 
 function saveAllotment() {
 
@@ -77,7 +77,7 @@ function saveDummyData() {
     .findOne({name: 'Abbots Way'})
     .exec()
     .then(allotment => {
-      users[0].myAllotment.push(allotment._id);
+      users[0].allotments.push(allotment._id);
       users[0].save();
       console.log(users[0]);
     })
