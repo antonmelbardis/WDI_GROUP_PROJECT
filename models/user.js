@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
   postcode: { type: String, required: true},
   allotments: [{ type: mongoose.Schema.ObjectId, ref: 'Allotment'}],
   otherDetails: { type: String, trim: true},
-  forSale: { type: Array },
+  forSale: [{ type: mongoose.Schema.ObjectId, ref: 'Crop'}],
   postCode: { type: String},
   role: []
 

@@ -8,17 +8,18 @@ function UserShowCtrl(User, $http, $stateParams, CurrentUserService, $state, Cro
   const vm = this;
 
   vm.user = CurrentUserService.currentUser;
-  vm.forSale = vm.user.forSale;
-  vm.allotments = vm.user.allotments;
+  vm.cropArray = [];
+  vm.allotmentArray = [];
 
-  // for(let i = 0; i < vm.forSale.length; i++) {
-  //   vm.crop[i] = Crop.get({ id: });
-  //   console.log(vm.crop[i]);
-  // }
+  vm.user.forSale.forEach(function(crop) {
+    vm.cropForSale = Crop.get({ id: crop});
+    vm.cropArray.push(vm.cropForSale);
+  });
 
-  // console.log(vm.forSale);
-  // console.log(vm.allotments);
-
+  vm.user.allotments.forEach(function(allotment) {
+    vm.myAllotment = Allotment.get({ id: allotment});
+    vm.allotmentArray.push(vm.myAllotment);
+  });
 
   //////////// GET CROPS AND ADD WATCH FOR USER INPUT ////////////
   getCrops();

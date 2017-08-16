@@ -6,15 +6,15 @@
 
 <div style="display: inline-block">
   <h4>Crops for sale</h4>
-  <ul ng-repeat="item in UserShowCtrl.forSale">
-    <li>{{item}}</li>
+  <ul ng-repeat="item in UserShowCtrl.cropArray">
+    <li>{{item.name}}</li>
   </ul>
 </div>
 
 <div style="display: inline-block">
   <h4>Find me at this allotment</h4>
-  <ul ng-repeat="place in UserShowCtrl.allotments">
-    <li>{{place}}</li>
+  <ul ng-repeat="place in UserShowCtrl.allotmentArray">
+    <li>{{place.name}}</li>
   </ul>
 </div>
 <hr>
