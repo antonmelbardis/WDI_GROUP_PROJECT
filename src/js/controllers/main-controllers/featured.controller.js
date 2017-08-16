@@ -2,15 +2,16 @@ angular
 .module('WDI_Group_Project')
 .controller('FeaturedCtrl', FeaturedCtrl);
 
-FeaturedCtrl.$inject = ['Allotment','filterFilter', '$scope', '$http', 'CurrentUserService'];
+FeaturedCtrl.$inject = ['Allotment','filterFilter', '$scope', '$http', 'CurrentUserService', 'User'];
 
-function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService){
+function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService, User){
   const vm = this;
   vm.allotments = [];
   vm.crops = [];
   vm.user = CurrentUserService.currentUser;
+  console.log(vm.user.role);
 
-  vm.destination = 'ec1y4ab';
+  vm.destination = 'se192ab';
   vm.origin = vm.user.postcode;
 
   const service = new google.maps.DistanceMatrixService();
@@ -22,7 +23,7 @@ function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService
     }, getDistance);
 
   function getDistance(response) {
-    console.log(response);
+    console.log(response.rows[0].elements[0].distance.text);
   }
 
   getAllotment();
@@ -62,7 +63,6 @@ function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService
     };
     vm.cropsFiltered = filterFilter(vm.crops, params);
   }
-
   function startCropWatch() {
     $scope.$watchGroup([
       () => vm.cropName

@@ -1,29 +1,26 @@
 <h1>Featured</h1>
-
+<hr>
 <main>
   <form>
     <div class="form-group">
       <input type="text" class="form-control" placeholder="Search Postcode..." ng-model="FeaturedCtrl.nearestPostcode">
     </div>
     <p>or</p>
+
     <div class="form-group">
       <input type="text" class="form-control" placeholder="Search Crops..." ng-model="FeaturedCtrl.cropName">
     </div>
+    
   </form>
 
-  <!-- <div class="media" ng-repeat="allotment in allotment.allotments[0].result.records"> -->
   <div ng-show="FeaturedCtrl.nearestPostcode.length > 0" class="media" ng-repeat="allotment in FeaturedCtrl.allotmentsFiltered">
     <div class="media-left">
     </div>
     <div class="media-body">
       <a ui-sref="allotmentProfile({id: allotment._id})"><h4 class="media-heading">{{ allotment.name | uppercase }}</h4></a>
       <p>{{ allotment.location }}</p>
-
       <p>{{ allotment.nearestPostcode }}</p>
       <p>{{ allotment.borough }}</p>
-
-      <!-- <p>{{ allotment.Latitude}}</p>
-      <p>{{ allotment.Longitude }}</p> -->
     </div>
   </div>
 
@@ -33,8 +30,6 @@
     <div class="media-body">
       <a ui-sref="cropShow({id: crop._id})"><h4 class="media-heading">{{ crop.name | uppercase }}</h4></a>
       <p>{{ crop.description }}</p>
-      <!-- <p>{{ crop.image }}</p>
-      <p>{{ crop.thumbnail }}</p> -->
     </div>
   </div>
 </main>
