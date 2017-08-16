@@ -2,7 +2,6 @@ angular
 .module('WDI_Group_Project')
 .controller('AllotmentProfileCtrl', AllotmentProfileCtrl);
 
-
 AllotmentProfileCtrl.$inject = ['Allotment', '$state', '$stateParams', 'CurrentUserService'];
 function AllotmentProfileCtrl(Allotment, $state, $stateParams, CurrentUserService) {
   const vm = this;
@@ -12,7 +11,10 @@ function AllotmentProfileCtrl(Allotment, $state, $stateParams, CurrentUserServic
   vm.addToMyAllotment  = addToMyAllotment;
   vm.checkSaveState    = checkSaveState;
 
-  vm.selectedAllotment = Allotment.get({ id: $stateParams.id });
+  Allotment.get({ id: $stateParams.id }, data => {
+    vm.selectedAllotment = data;
+
+  });
 
 ////////// ADDING ALLOTMENTS TO 'MY-ALLOTMENTS ARRAY' //////////
   function checkSaveState() {
@@ -33,5 +35,6 @@ function AllotmentProfileCtrl(Allotment, $state, $stateParams, CurrentUserServic
           $state.go('featured');
         }, 200);
       });
+
   }
 }

@@ -1,4 +1,15 @@
+
 <h2>{{ AllotmentProfileCtrl.selectedAllotment.name}} </h2>
+
+
+<!-- </br>
+<google-map center="{ lat: 52.1, lng: -0.085 }"></google-map> -->
+
+<br>
+<google-map center="AllotmentProfileCtrl.selectedAllotmentCoords"></google-map>
+
+<p> {{AllotmentProfileCtrl.selectedAllotment.location}}</p>
+<!-- <p> {{AllotmentProfileCtrl.selectedAllotment.allotmentFarmers}}</p> -->
 <button ng-disabled="main.user.allotments.indexOf(AllotmentProfileCtrl.selectedAllotment._id) !== -1" ng-click="AllotmentProfileCtrl.addToMyAllotment()" name="button">Add To My Allotment</button>
 
 <button ui-sref="featured">Back to Search...</button>
