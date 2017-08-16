@@ -6,9 +6,9 @@ FeaturedCtrl.$inject = ['Allotment','filterFilter', '$scope', '$http', 'CurrentU
 
 function FeaturedCtrl(Allotment, filterFilter, $scope, $http, CurrentUserService){
   const vm = this;
+
   vm.crops = [];
   vm.user = CurrentUserService.currentUser;
-  
 
   ///////// GET ALLOTMENTS AND ADD WATCH FOR USER INPUT /////////
   getAllotment();

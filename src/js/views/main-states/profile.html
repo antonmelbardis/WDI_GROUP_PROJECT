@@ -1,5 +1,3 @@
-<div ng-show="UserShowCtrl.user.allotments.length" class="">
-
 <div>
   <h1>{{ UserShowCtrl.seller.username }}</h1>
   <a href="mailto:{{UserShowCtrl.seller.email}}">Contact {{UserShowCtrl.seller.username}}</a>
@@ -20,8 +18,11 @@
   </ul>
 </div>
 <hr>
+<button ng-click="UserShowCtrl.goBack()">Go Back</button>
+<hr>
 
-<h4>Search Crops to Buy/Sell...</h4>
+<div ng-show="main.user">
+  <h4>Search Crops to Buy/Sell...</h4>
   <form>
     <div class="form-group">
       <input type="text" class="form-control" placeholder="Search Crops..." ng-model="UserShowCtrl.cropName">
@@ -35,5 +36,4 @@
       <p>{{ crop.description }}</p>
     </div>
   </div>
-
-  </div>
+</div>
