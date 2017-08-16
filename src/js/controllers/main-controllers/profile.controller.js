@@ -12,6 +12,11 @@ function UserShowCtrl(User, $http, $stateParams, CurrentUserService, $state, Cro
   vm.allotmentArray = [];
   vm.seller = $stateParams.id;
 
+  vm.goBack = goBack;
+  function goBack() {
+    window.history.back();
+  }
+
   User.get({id: vm.seller})
   .$promise
   .then(seller => {

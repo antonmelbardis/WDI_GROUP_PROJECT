@@ -15,7 +15,9 @@ function LoginCtrl(User, CurrentUserService, $state) {
     .$promise
     .then(() => {
       CurrentUserService.getUser();
-      $state.go('featured');
+      setTimeout(function() {
+        $state.go('featured');
+      }, 200);    
     });
   }
 }

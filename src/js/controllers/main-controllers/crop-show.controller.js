@@ -13,22 +13,39 @@ function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User) {
   vm.checkSaveState = checkSaveState;
   vm.sellingUsers   = [];
   vm.selectedCrop   = Crop.get({ id: $stateParams.id });
+  // console.log(vm.user.allotments);
 
-  vm.origin = vm.user.postcode;
-  vm.destination = 'se192ab';
-  
-  const service = new google.maps.DistanceMatrixService();
-  service.getDistanceMatrix(
-    {
-      origins: [vm.origin],
-      destinations: [vm.destination],
-      travelMode: 'DRIVING'
-    }, getDistance);
+  ////////////////////////////////////////////////////////////////////
 
-  function getDistance(response) {
-    console.log(response.rows[0].elements[0].distance.text);
-  }
+  // const options = {
+  //   enableHighAccuracy: true,
+  //   timeout: 5000,
+  //   maximumAge: 0
+  // };
+  // function success(position) {
+  //   const pos = position.coords;
+  //   console.log(`Latitude : ${pos.latitude}`);
+  //   console.log(`Longitude: ${pos.longitude}`);
+  //   vm.origin = `${pos.latitude},${pos.longitude}`;
+  //   vm.destination = '51.419268,-0.075922';
+  //
+  //   const service = new google.maps.DistanceMatrixService();
+  //   service.getDistanceMatrix(
+  //     {
+  //       origins: [vm.origin],
+  //       destinations: [vm.destination],
+  //       travelMode: 'DRIVING'
+  //     }, getDistance);
+  //   function getDistance(response) {
+  //     console.log(response.rows[0].elements[0].distance.text);
+  //   }
+  // }
+  // function error(err) {
+  //   console.warn(`ERROR(${err.code}): ${err.message}`);
+  // }
+  // navigator.geolocation.getCurrentPosition(success, error, options);
 
+  ///////////////////////////////////////////////////////////////////
   getUsers();
   function checkSaveState() {
     if (vm.user.forSale.indexOf(vm.selectedCrop._id) !== -1) {
