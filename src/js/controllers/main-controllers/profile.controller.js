@@ -10,15 +10,22 @@ function UserShowCtrl(User, $http, $stateParams, CurrentUserService, $state, Cro
   vm.user = CurrentUserService.currentUser;
   vm.cropArray = [];
   vm.allotmentArray = [];
+  vm.seller = $stateParams.id;
 
-  vm.user.forSale.forEach(function(crop) {
-    vm.cropForSale = Crop.get({ id: crop});
-    vm.cropArray.push(vm.cropForSale);
-  });
+  User.get({id: vm.seller})
+  .$promise
+  .then(seller => {
+    vm.seller = seller;
+    // console.log(vm.seller);
+    vm.seller.forSale.forEach(function(crop) {
+      vm.cropForSale = Crop.get({ id: crop});
+      vm.cropArray.push(vm.cropForSale);
+    });
 
-  vm.user.allotments.forEach(function(allotment) {
-    vm.myAllotment = Allotment.get({ id: allotment});
-    vm.allotmentArray.push(vm.myAllotment);
+    vm.seller.allotments.forEach(function(allotment) {
+      vm.myAllotment = Allotment.get({ id: allotment});
+      vm.allotmentArray.push(vm.myAllotment);
+    });
   });
 
   //////////// GET CROPS AND ADD WATCH FOR USER INPUT ////////////

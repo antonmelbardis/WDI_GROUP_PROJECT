@@ -15,7 +15,6 @@ function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User) {
   vm.selectedCrop   = Crop.get({ id: $stateParams.id });
 
   getUsers();
-
   function checkSaveState() {
     if (vm.user.forSale.indexOf(vm.selectedCrop._id) !== -1) {
       return true;
@@ -23,7 +22,6 @@ function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User) {
       return false;
     }
   }
-
   function addToForSale() {
     Crop
     .saveCrop({ id: $stateParams.id, userId: vm.user._id })
