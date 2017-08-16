@@ -28,7 +28,10 @@ function AllotmentProfileCtrl(Allotment, $state, $stateParams, CurrentUserServic
       .$promise
       .then(() => {
         checkSaveState();
-        $state.go('userShow', { id: vm.user._id });
+        CurrentUserService.getUser();
+        setTimeout(function() {
+          $state.go('featured');
+        }, 200);
       });
   }
 }

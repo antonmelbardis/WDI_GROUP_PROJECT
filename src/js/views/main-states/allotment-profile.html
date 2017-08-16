@@ -1,24 +1,4 @@
-<!-- <div class="row">
-  <div class="col-md-6">
-    <img ng-src="{{ allotmentProfile.allotment.image }}">
-  </div>
+<h2>{{ AllotmentProfileCtrl.selectedAllotment.name}} </h2>
+<button ng-disabled="main.user.allotments.indexOf(AllotmentProfileCtrl.selectedAllotment._id) !== -1" ng-click="AllotmentProfileCtrl.addToMyAllotment()" name="button">Add To My Allotment</button>
 
-
-  <div class="col-md-6">
-
-    <h2>{{ allotmentProfile.allotment.name }}</h2>
-    <p><strong>{{allotmentProfile.allotment.location }} {{allotmentProfile.allotment.postcode}} {{ allotmentProfile.allotment.borough}}</strong> </p>
-
-    <div>
-      <p>{{allotmentProfile.allotment.product}}</p>
-    </div>
-
-    <br>
-    <p>  {{allotmentProfile.allotment.contact}} Contact This Allotment </p>
-    <button ng-click="show.back()">Back</button>
-
-  </div>
-</div> -->
-
-  <h2>{{ AllotmentProfileCtrl.selectedAllotment.name}} </h2>
-  <button ng-disabled="main.user.allotments.indexOf(AllotmentProfileCtrl.selectedAllotment._id) !== -1" ng-click="AllotmentProfileCtrl.addToMyAllotment()" name="button">Add To My Allotment</button>
+<button ui-sref="featured">Back to Search...</button>

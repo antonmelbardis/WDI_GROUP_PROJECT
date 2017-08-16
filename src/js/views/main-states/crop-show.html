@@ -1,2 +1,9 @@
 <h2>{{ CropShowCtrl.selectedCrop.name}}</h2>
-<button ng-disabled="main.user.forSale.indexOf(CropShowCtrl.selectedCrop._id) !== -1" ng-click="CropShowCtrl.addToForSale()" name="button">Add To My Selling</button>
+<button ng-disabled="main.user.forSale.indexOf(CropShowCtrl.selectedCrop._id) !== -1" ng-click="CropShowCtrl.addToForSale()">Add To My Selling</button>
+<button ui-sref="featured">Back to Search...</button>
+<hr>
+<h4>Available to buy from...</h4>
+
+<ul ng-repeat="seller in CropShowCtrl.sellingUsers">
+  <a ui-sref="userShow({id: seller._id})"><li>{{seller.username}}<p>{{seller._id}}</p></li></a>
+</ul>

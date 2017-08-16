@@ -1,6 +1,8 @@
+<div ng-show="UserShowCtrl.user.allotments.length" class="">
+
 <div>
-  <h1>{{ UserShowCtrl.user.username }}</h1>
-  <a href="mailto:{{UserShowCtrl.user.email}}">Contact {{UserShowCtrl.user.username}}</a>
+  <h1>{{ UserShowCtrl.seller.username }}</h1>
+  <a href="mailto:{{UserShowCtrl.seller.email}}">Contact {{UserShowCtrl.seller.username}}</a>
 </div>
 <hr>
 
@@ -19,7 +21,7 @@
 </div>
 <hr>
 
-<h4>Add more crops to my selling list...</h4>
+<h4>Search Crops to Buy/Sell...</h4>
   <form>
     <div class="form-group">
       <input type="text" class="form-control" placeholder="Search Crops..." ng-model="UserShowCtrl.cropName">
@@ -32,4 +34,6 @@
       <a ui-sref="cropShow({id: crop._id})"><h4 class="media-heading">{{ crop.name | uppercase }}</h4></a>
       <p>{{ crop.description }}</p>
     </div>
+  </div>
+
   </div>
