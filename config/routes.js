@@ -31,6 +31,7 @@ router.route('/crops')
 router.route('/crops/:id')
 .get(crops.show);
 router.route('/crops/:id/save/:userId')
-.get(crops.save);
+.get(crops.save)
+.delete(crops.delete);
 
 module.exports = router;

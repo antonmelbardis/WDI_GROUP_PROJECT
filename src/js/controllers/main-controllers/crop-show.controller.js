@@ -3,8 +3,8 @@ angular
 .controller('CropShowCtrl', CropShowCtrl);
 
 
-CropShowCtrl.$inject = ['Crop', '$stateParams', 'CurrentUserService', '$state', 'User'];
-function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User) {
+CropShowCtrl.$inject = ['Crop', '$stateParams', 'CurrentUserService', '$state', 'User', '$http', 'Allotment'];
+function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User, $http, Allotment) {
   const vm = this;
 
   vm.cropId         = $stateParams.id;
@@ -13,8 +13,9 @@ function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User) {
   vm.checkSaveState = checkSaveState;
   vm.sellingUsers   = [];
   vm.selectedCrop   = Crop.get({ id: $stateParams.id });
-  // console.log(vm.user.allotments);
 
+  getUsers();
+  getUsersLocations();
   ////////////////////////////////////////////////////////////////////
 
   // const options = {
@@ -46,7 +47,6 @@ function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User) {
   // navigator.geolocation.getCurrentPosition(success, error, options);
 
   ///////////////////////////////////////////////////////////////////
-  getUsers();
   function checkSaveState() {
     if (vm.user.forSale.indexOf(vm.selectedCrop._id) !== -1) {
       return true;
@@ -64,13 +64,24 @@ function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User) {
     });
   }
   function getUsers() {
-    User.query(function(userArray) {
-      userArray.forEach(function(user) {
+    $http.get('http://localhost:7000/api/users')
+    .then(users => {
+      users.data.forEach(function(user) {
         user.forSale.filter(function (crop) {
           if(crop === vm.cropId) {
             vm.sellingUsers.push(user);
+            console.log(typeof vm.sellingUsers);
           }
         });
+      });
+    });
+  }
+  function getUsersLocations() {
+    console.log(vm.sellingUsers);
+    vm.sellingUsers.forEach(function(user) {
+      $http.get(`http://localhost:7000/api/allotments/${user.allotment[0]}`)
+      .then(allotment => {
+        console.log(allotment);
       });
     });
   }

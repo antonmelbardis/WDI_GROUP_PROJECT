@@ -7,7 +7,7 @@
 <div style="display: inline-block">
   <h4>Crops for sale</h4>
   <ul ng-repeat="item in UserShowCtrl.cropArray">
-    <li>{{item.name}}</li>
+    <li>{{item.name}}<button ng-click="UserShowCtrl.cropDelete( item)">REMOVE</button></li>
   </ul>
 </div>
 
