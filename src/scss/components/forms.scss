@@ -1,8 +1,30 @@
-.register-form {
-  margin-top: 400px;
+.forms {
   position: relative;
+  margin-top: 50px;
   padding: 15px;
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255,255,255,0.6);
+  outline: solid 2px white;
+  outline-offset: 15px;
+
+  .form-control {
+    border: 0;
+    background-color: rgba(0,0,0,0.0);
+    border-bottom: solid 2px white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .btn {
+    width: 100%;
+    background-color: #096903;
+    border: none;
+    border-radius: 0;
+    font-family: Lato;
+  }
+  .btn:hover {
+    background-color: darken(#096903, 5%);
+    box-shadow: 1px 1px rgba(0,0,0,0.3);
+  }
 }
 
 input {

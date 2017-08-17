@@ -1,4 +1,6 @@
 <main>
+  <h1>Search for local produce...</h1>
+  <img class="down-arrow" src="https://s28.postimg.org/dwasytcd9/Down_Arrow_White-01.png">
   <div ng-hide="FeaturedCtrl.user.allotments.length || (!main.user)">
     <h2>Add your allotment below...</h2>
     <form class="" action="index.html" method="post">
@@ -21,33 +23,50 @@
 
   <!-- /////////////////////////////// -->
 
-  <div ng-show="FeaturedCtrl.user.allotments.length || (!main.user)">
-    <ul>
-      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc2a'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
-      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc3d'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
-      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc4c'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
-      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc59'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
-      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc33'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
-      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc2f'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
-      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc27'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
-      <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc3b'})"><li><img src="http://fillmurray.com/150/150" ></li></a>
-    </ul>
+  <div class="favourite-holder" ng-show="FeaturedCtrl.user.allotments.length || (!main.user)">
 
-    <h2>Search Crops to Buy/Sell...</h2>
-    <form>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search Crops..." ng-model="FeaturedCtrl.cropName">
+    <div class="row">
+      <div class="favourite-crop col-sm-3">
+        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc2a'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
       </div>
-    </form>
-
-    <div ng-show="FeaturedCtrl.cropName.length > 0" class="media" ng-repeat="crop in FeaturedCtrl.cropsFiltered">
-      <div class="media-left">
+      <div class="favourite-crop col-sm-3">
+        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc3d'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
       </div>
-      <div class="media-body">
-        <a ui-sref="cropShow({id: crop._id})"><h4 class="media-heading">{{ crop.name | uppercase }}</h4></a>
-        <p>{{ crop.description }}</p>
+      <div class="favourite-crop col-sm-3">
+        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc4c'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
+      </div>
+      <div class="favourite-crop col-sm-3">
+        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc59'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
+      </div>
+      <div class="favourite-crop col-sm-3">
+        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc33'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
+      </div>
+      <div class="favourite-crop col-sm-3">
+        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc2f'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
+      </div>
+      <div class="favourite-crop col-sm-3">
+        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc27'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
+      </div>
+      <div class="favourite-crop col-sm-3">
+        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc3b'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
       </div>
     </div>
-  </div>
 
-</main>
+      <h2>Search Crops to Buy/Sell...</h2>
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search Crops..." ng-model="FeaturedCtrl.cropName">
+        </div>
+      </form>
+
+      <div ng-show="FeaturedCtrl.cropName.length > 0" class="media" ng-repeat="crop in FeaturedCtrl.cropsFiltered">
+        <div class="media-left">
+        </div>
+        <div class="media-body">
+          <a ui-sref="cropShow({id: crop._id})"><h4 class="media-heading">{{ crop.name | uppercase }}</h4></a>
+          <p>{{ crop.description }}</p>
+        </div>
+      </div>
+    </div>
+
+  </main>

@@ -3,13 +3,31 @@
   width: 300px;
   display: inline-block;
 }
+* {
+  box-sizing: border-box;
+}
 
-body {
+// body {
+//   background: url("https://preview.ibb.co/fwHpHF/Allotment_Images_02_copy.jpg");
+//   background-position: center;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   height: 100vh;
+// }
+
+.jumbo {
+  position: absolute;
+  top: 0;
   background: url("https://preview.ibb.co/fwHpHF/Allotment_Images_02_copy.jpg");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  z-index: -1;
+  height: 100vh;
 }
 
 @import 'components/jumbotron';
 @import 'components/navbar';
 @import 'components/forms';
+@import 'components/featured';
