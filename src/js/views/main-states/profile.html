@@ -21,7 +21,7 @@
 <button ng-click="UserShowCtrl.goBack()">Go Back</button>
 <hr>
 
-<div ng-show="main.user">
+<div ng-show="main.user && UserShowCtrl.user._id === UserShowCtrl.seller._id">
   <h4>Search Crops to Buy/Sell...</h4>
   <form>
     <div class="form-group">
