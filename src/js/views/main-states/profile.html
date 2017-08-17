@@ -1,43 +1,59 @@
 <h1>{{ UserShowCtrl.seller.firstName }} {{ UserShowCtrl.seller.lastName }}</h1>
 <div class="email-holder">
-  <a href="mailto:{{UserShowCtrl.seller.email}}">Contact {{UserShowCtrl.seller.firstName}}</a>
+  <a ng-hide="UserShowCtrl.user._id === UserShowCtrl.seller._id" href="mailto:{{UserShowCtrl.seller.email}}">Contact {{UserShowCtrl.seller.firstName}}</a>
 </div>
 
 <div class="user-holder">
+  <h4>CROPS FOR SALE</h4>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <hr>
 
-<div style="display: inline-block">
-  <h4>Crops for sale</h4>
-  <ul ng-repeat="item in UserShowCtrl.cropArray">
-    <li>{{item.name}}<button ng-show="UserShowCtrl.user._id === UserShowCtrl.seller._id" ng-click="UserShowCtrl.cropDelete( item)">REMOVE</button></li>
-  </ul>
-</div>
+      <div ng-repeat="item in UserShowCtrl.cropArray">
+        <div class="col-sm-3 for-sale-list">
+          <div><p>{{item.name}}</p></div><button class="btn-delete" ng-show="UserShowCtrl.user._id === UserShowCtrl.seller._id" ng-click="UserShowCtrl.cropDelete( item)">REMOVE</button>
+        </div>
+      </div>
 
-<div style="display: inline-block">
-  <h4>Find me at this allotment</h4>
-  <ul ng-repeat="place in UserShowCtrl.allotmentArray">
-    <li>{{place.name}}</li>
-  </ul>
-</div>
-<hr>
-<button ng-click="UserShowCtrl.goBack()">Go Back</button>
-<hr>
+      <button class="btn" ng-click="UserShowCtrl.goBack()">BACK TO RESULTS</button>
+      <hr>
+      <h4>SELLING HERE</h4>
+      <hr>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <p><strong>NAME: </strong>{{UserShowCtrl.allotmentArray[0].name}}</p>
+          <p><strong>BOROUGH:  </strong>{{UserShowCtrl.allotmentArray[0].borough}}</p>
+          <p><strong>POSTCODE:  </strong>{{UserShowCtrl.allotmentArray[0].nearestPostcode}}</p>
+          <p><strong>LOCATION:  </strong>{{UserShowCtrl.allotmentArray[0].location}}</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 gmap">
+          <google-map-u class="img-responsive pull-right" center="AllotmentProfileCtrl.selectedUserCoords"></google-map-u>
+        </div>
+      </div>
+      <hr>
 
-<div ng-show="main.user && UserShowCtrl.user._id === UserShowCtrl.seller._id">
-  <h4>Search Crops to Buy/Sell...</h4>
-  <form>
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search Crops..." ng-model="UserShowCtrl.cropName">
-    </div>
-  </form>
-  <div ng-show="UserShowCtrl.cropName.length > 0" class="media" ng-repeat="crop in UserShowCtrl.cropsFiltered">
-    <div class="media-left">
-    </div>
-    <div class="media-body">
-      <a ui-sref="cropShow({id: crop._id})"><h4 class="media-heading">{{ crop.name | uppercase }}</h4></a>
-      <p>{{ crop.description }}</p>
+      <div class="col-xs-12" ng-show="main.user && UserShowCtrl.user._id === UserShowCtrl.seller._id">
+        <h4>FIND CROPS</h4>
+        <div class="search-box">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search Crops..." ng-model="UserShowCtrl.cropName">
+            </div>
+          </form>
+          <div ng-show="UserShowCtrl.cropName.length > 0" class="media search-results" ng-repeat="crop in UserShowCtrl.cropsFiltered">
+            <div class="media-left">
+            </div>
+            <div class="media-body">
+              <div class="desc-holder">
+                <a ui-sref="cropShow({id: crop._id})"><h5 class="media-heading">{{ crop.name | uppercase }}</h5></a>
+                </div>
+                <div class="desc-holder">
+              <p>{{ crop.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<google-map-u center="AllotmentProfileCtrl.selectedUserCoords"></google-map-u>
-
 </div>
