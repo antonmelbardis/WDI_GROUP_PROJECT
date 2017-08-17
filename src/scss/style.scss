@@ -4,5 +4,11 @@
   display: inline-block;
 }
 
+body {
+  background: url("https://s29.postimg.org/fvhwe24s7/Allotment_Images-01.png");
+  background-position: center;
+  background-size: cover;
+}
 @import 'components/jumbotron';
 @import 'components/navbar';
+@import 'components/forms';
