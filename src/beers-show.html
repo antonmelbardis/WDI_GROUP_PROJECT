@@ -1,0 +1,20 @@
+
+
+<!-- <div class="col-xs-3"> -->
+  <div class="show-card col-xs-6">
+    <img src="{{ beersShow.oneBeer.image_url }}" class="img-responsive center-block">
+  </div>
+<!-- </div> -->
+
+<div class="col-xs-6 show-info">
+  <a href="#"><h2>{{ beersShow.oneBeer.name }}</h2></a>
+  <h5>ABV {{ beersShow.oneBeer.abv }}%</h5>
+  <p>{{ beersShow.oneBeer.description }}</p>
+  <hr>
+  <h4>Goes well with...</h4>
+  <ul ng-repeat="food in beersShow.oneBeer.food_pairing">
+    <li>{{ food }}</li>
+  </ul>
+  <button class="btn" ng-click="beersShow.addToMyBeer()" type="button" name="button">Add to My Beers</button>
+</div>
+<button class="btn col-xs-12" ui-sref="beersIndex" type="button" name="button">Back to Index</button>

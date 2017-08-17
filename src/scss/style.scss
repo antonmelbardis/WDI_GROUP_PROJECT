@@ -4,5 +4,12 @@
   display: inline-block;
 }
 
+body {
+  background: url("https://preview.ibb.co/fwHpHF/Allotment_Images_02_copy.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
 @import 'components/jumbotron';
 @import 'components/navbar';
+@import 'components/forms';

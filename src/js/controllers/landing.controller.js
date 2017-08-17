@@ -21,20 +21,24 @@ function MainCtrl($rootScope, CurrentUserService, $state) {
   }
 }
 
-$(function(){
-
-  const imgArray = [
-    'https://i.imgur.com/BnmXD5x.jpg',
-    'http://fillmurray.com/g/400/400',
-    'http://fillmurray.com/g/300/400'
-  ];
-  $('.jumbotronHolder').prepend(`<img id="vegImg" src="https://i.imgur.com/BnmXD5x.jpg"/>`);
-
-  setInterval(function(){
-    const selectedImage = imgArray[Math.floor(Math.random()*imgArray.length)];
-    $('#vegImg').fadeOut(1000);
-    $('.jumbotronHolder').prepend(`<img id="vegImg" src="${selectedImage}"/>`);
-  }, 3000);
-
-
-});
+// $(function(){
+//
+//   const imgArray = [
+//     'https://i.imgur.com/ZCZgqDe.jpg',
+//     'https://i.imgur.com/JcV6jDq.jpg',
+//     'https://i.imgur.com/uL5QQwM.jpg',
+//     'https://i.imgur.com/mfF4HOK.jpg',
+//     'https://i.imgur.com/mmAF0YU.jpg',
+//     'https://i.imgur.com/c0XYzDV.jpg'
+//   ];
+//
+//   $('body').css('background', 'url("https://i.imgur.com/uL5QQwM.jpg")');
+//
+//   setInterval(function(){
+//     const selectedImage = imgArray[Math.floor(Math.random()*imgArray.length)];
+//     $('#vegImg').fadeOut(2000);
+//     $('.jumbotronHolder').prepend(`<img id="vegImg" src="${selectedImage}"/>`);
+//   }, 4000);
+//
+//
+// });

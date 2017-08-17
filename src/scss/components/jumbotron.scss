@@ -1,8 +1,8 @@
 .jumbotronHolder {
-  height: 918px;
+  height: 650px;
   width: 100%;
   position: absolute;
-  top: -400px;
+  top: -200px;
   z-index: -1;
   overflow: hidden;
 }
@@ -10,6 +10,7 @@
 #vegImg{
   position: absolute;
   top: 0;
+  width: 100%;
 }
 
 h1  {
