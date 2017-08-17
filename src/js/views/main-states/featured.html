@@ -24,49 +24,68 @@
   <!-- /////////////////////////////// -->
 
   <div class="favourite-holder" ng-show="FeaturedCtrl.user.allotments.length || (!main.user)">
+    <h4>TOP CROPS</h4>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <hr>
+        <div class="favourite-crop col-xs-6 col-sm-3">
+          <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc2a'})"><img class=" center-block img-responsive" src="https://s4.postimg.org/soi56sk1p/Veggies_In_White_Circle-05.png"></a>
+        </div>
+        <div class="favourite-crop col-xs-6 col-sm-3">
+          <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc3d'})"><img class=" center-block img-responsive" src="https://s4.postimg.org/bk5fhv1j1/Veggies_In_White_Circle-01.png"></a>
+        </div>
+        <div class="favourite-crop col-xs-6 col-sm-3">
+          <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc4c'})"><img class=" center-block img-responsive" src="https://s4.postimg.org/p9zyqnon1/Veggies_In_White_Circle-08.png"></a>
+        </div>
+        <div class="favourite-crop col-xs-6 col-sm-3">
+          <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc59'})"><img class=" center-block img-responsive" src="https://s4.postimg.org/h71sfc41p/Veggies_In_White_Circle-04.png"></a>
+        </div>
+        <div class="favourite-crop col-xs-6 col-sm-3">
+          <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc33'})"><img class=" center-block img-responsive" src="https://s4.postimg.org/4edofesfx/Veggies_In_White_Circle-06.png"></a>
+        </div>
+        <div class="favourite-crop col-xs-6 col-sm-3">
+          <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc2f'})"><img class=" center-block img-responsive" src="https://s4.postimg.org/w5k79rj3x/Veggies_In_White_Circle-07.png"></a>
+        </div>
+        <div class="favourite-crop col-xs-6 col-sm-3">
+          <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc27'})"><img class=" center-block img-responsive" src="https://s27.postimg.org/ze16a3zub/Veggies_In_White_Circle_Broc-07.png"></a>
+        </div>
+        <div class="favourite-crop col-xs-6 col-sm-3">
+          <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc3b'})"><img class=" center-block img-responsive" src="https://s4.postimg.org/j5d1r2lx9/Veggies_In_White_Circle-02.png"></a>
+        </div>
+
+      </div>
+    </div>
+
+
 
     <div class="row">
-      <div class="favourite-crop col-sm-3">
-        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc2a'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
-      </div>
-      <div class="favourite-crop col-sm-3">
-        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc3d'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
-      </div>
-      <div class="favourite-crop col-sm-3">
-        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc4c'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
-      </div>
-      <div class="favourite-crop col-sm-3">
-        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc59'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
-      </div>
-      <div class="favourite-crop col-sm-3">
-        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc33'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
-      </div>
-      <div class="favourite-crop col-sm-3">
-        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc2f'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
-      </div>
-      <div class="favourite-crop col-sm-3">
-        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc27'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
-      </div>
-      <div class="favourite-crop col-sm-3">
-        <a ui-sref="cropShow({id: '5992d82dcd47a657c807bc3b'})"><img class=" center-block img-responsive" src="http://fillmurray.com/150/150"></a>
-      </div>
-    </div>
+      <div class="col-xs-8 col-xs-offset-2">
+        <hr>
+          <h4>FIND CROP...</h4>
+          <div class="search-box">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search Crops..." ng-model="FeaturedCtrl.cropName">
+            </div>
+          </form>
 
-      <h2>Search Crops to Buy/Sell...</h2>
-      <form>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search Crops..." ng-model="FeaturedCtrl.cropName">
-        </div>
-      </form>
-
-      <div ng-show="FeaturedCtrl.cropName.length > 0" class="media" ng-repeat="crop in FeaturedCtrl.cropsFiltered">
-        <div class="media-left">
-        </div>
-        <div class="media-body">
-          <a ui-sref="cropShow({id: crop._id})"><h4 class="media-heading">{{ crop.name | uppercase }}</h4></a>
-          <p>{{ crop.description }}</p>
+          <div ng-show="FeaturedCtrl.cropName.length > 0" class="media search-results" ng-repeat="crop in FeaturedCtrl.cropsFiltered">
+            <div class="media-left">
+            </div>
+            <div class="media-body">
+              <div class="desc-holder">
+              <a ui-sref="cropShow({id: crop._id})"><h5 class="media-heading">{{ crop.name | uppercase }}</h5></a>
+              </div>
+              <div class="desc-holder">
+                <p>{{ crop.description }}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-  </main>
+
+
+</main>

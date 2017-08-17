@@ -1,6 +1,57 @@
 .favourite-holder {
-  margin-top: 50px;
+  margin-top: 30px;
   .favourite-crop {
-    margin-bottom: 15px;
+    margin-bottom: 35px;
+    img {
+      max-width: 100px;
+    }
   }
+  hr {
+    border: 1.5px solid black;
+    height: none;
+    margin-bottom: 50px;
+  }
+}
+
+h4  {
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: Lato;
+  font-size: 48px;
+  color: black;
+  letter-spacing: 3px;
+}
+
+h5 {
+  text-align: center;
+  font-family: Lato;
+  font-size: 28px;
+  letter-spacing: 3px;
+  font-weight: 900;
+}
+
+.search-box {
+  width: 100%;
+  background-image: url('https://s11.postimg.org/lh1c0d8fn/Veg_Backgd10_Per_Cent-01.png');
+  background-repeat: repeat-y;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  a:hover {
+    text-shadow: 1px 1px rgba(0,0,0,.2)
+  }
+  .desc-holder {
+    background-color: rgba(255,255,255,.7);
+    padding: 5px;
+    p {
+      text-align: justify;
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+}
+
+.search-results {
+  margin-bottom: 50px;
 }
