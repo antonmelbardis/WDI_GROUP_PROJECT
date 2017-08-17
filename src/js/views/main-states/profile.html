@@ -1,8 +1,9 @@
-<div>
-  <h1>{{ UserShowCtrl.seller.username }}</h1>
-  <a href="mailto:{{UserShowCtrl.seller.email}}">Contact {{UserShowCtrl.seller.username}}</a>
+<h1>{{ UserShowCtrl.seller.firstName }} {{ UserShowCtrl.seller.lastName }}</h1>
+<div class="email-holder">
+  <a href="mailto:{{UserShowCtrl.seller.email}}">Contact {{UserShowCtrl.seller.firstName}}</a>
 </div>
-<hr>
+
+<div class="user-holder">
 
 <div style="display: inline-block">
   <h4>Crops for sale</h4>
@@ -38,3 +39,5 @@
   </div>
 </div>
 <google-map-u center="AllotmentProfileCtrl.selectedUserCoords"></google-map-u>
+
+</div>

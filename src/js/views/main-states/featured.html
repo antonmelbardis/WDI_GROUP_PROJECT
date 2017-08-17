@@ -1,26 +1,33 @@
 <main>
-  <h1>Search for local produce...</h1>
+  <h1 ng-show="FeaturedCtrl.user.allotments.length || (!main.user)">Search for local produce...</h1>
+  <h1 ng-hide="FeaturedCtrl.user.allotments.length || (!main.user)">Add your local allotment...</h1>
   <img class="down-arrow" src="https://s28.postimg.org/dwasytcd9/Down_Arrow_White-01.png">
   <div ng-hide="FeaturedCtrl.user.allotments.length || (!main.user)">
-    <h2>Add your allotment below...</h2>
-    <form class="" action="index.html" method="post">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search Postcode..." ng-model="FeaturedCtrl.nearestPostcode">
-      </div>
-    </form>
 
-    <div ng-show="FeaturedCtrl.nearestPostcode.length > 0" class="media" ng-repeat="allotment in FeaturedCtrl.allotmentsFiltered">
-      <div class="media-left">
-      </div>
-      <div class="media-body">
-        <a ui-sref="allotmentProfile({id: allotment._id})"><h4 class="media-heading">{{ allotment.name | uppercase }}</h4></a>
-        <p>{{ allotment.location }}</p>
-        <p>{{ allotment.nearestPostcode }}</p>
-        <p>{{ allotment.borough }}</p>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <h4>FIND ALLOTMENT...</h4>
+        <div class="search-box">
+          <form class="" action="index.html" method="post">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search Postcode..." ng-model="FeaturedCtrl.nearestPostcode">
+            </div>
+          </form>
+
+          <div ng-show="FeaturedCtrl.nearestPostcode.length > 0" class="media" ng-repeat="allotment in FeaturedCtrl.allotmentsFiltered">
+            <div class="media-left">
+            </div>
+            <div class="media-body">
+              <a ui-sref="allotmentProfile({id: allotment._id})"><h5 class="media-heading">{{ allotment.name | uppercase }}</h5></a>
+              <p>{{ allotment.location }}</p>
+              <p>{{ allotment.nearestPostcode }}</p>
+              <p>{{ allotment.borough }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
   <!-- /////////////////////////////// -->
 
   <div class="favourite-holder" ng-show="FeaturedCtrl.user.allotments.length || (!main.user)">
@@ -61,8 +68,8 @@
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <hr>
-          <h4>FIND CROP...</h4>
-          <div class="search-box">
+        <h4>FIND CROP...</h4>
+        <div class="search-box">
           <form>
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search Crops..." ng-model="FeaturedCtrl.cropName">
@@ -74,7 +81,7 @@
             </div>
             <div class="media-body">
               <div class="desc-holder">
-              <a ui-sref="cropShow({id: crop._id})"><h5 class="media-heading">{{ crop.name | uppercase }}</h5></a>
+                <a ui-sref="cropShow({id: crop._id})"><h5 class="media-heading">{{ crop.name | uppercase }}</h5></a>
               </div>
               <div class="desc-holder">
                 <p>{{ crop.description }}</p>

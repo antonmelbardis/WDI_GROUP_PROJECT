@@ -1,15 +1,20 @@
-<h2>{{ AllotmentProfileCtrl.selectedAllotment.name}} </h2>
+<h1>{{ AllotmentProfileCtrl.selectedAllotment.name}}</h1>
+<a href="#goDown"><img class="down-arrow" src="https://s28.postimg.org/dwasytcd9/Down_Arrow_White-01.png"></a>
 
-
-<!-- </br>
-<google-map center="{ lat: 52.1, lng: -0.085 }"></google-map> -->
-
-<br>
-<google-map-a center="AllotmentProfileCtrl.selectedAllotmentCoords"></google-map-a>
-<div class="google-map" center="AllotmentProfileCtrl.selectedAllotmentCoords"></div>
-
-<p> {{AllotmentProfileCtrl.selectedAllotment.location}}</p>
-<!-- <p> {{AllotmentProfileCtrl.selectedAllotment.allotmentFarmers}}</p> -->
-<button ng-disabled="main.user.allotments.indexOf(AllotmentProfileCtrl.selectedAllotment._id) !== -1" ng-click="AllotmentProfileCtrl.addToMyAllotment()" name="button">Add To My Allotment</button>
-
-<button ui-sref="featured">Back to Search...</button>
+<div class="allotment-holder row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <h4>ALLOTMENT DETAILS</h4>
+    <hr>
+    <div class="col-xs-12 col-sm-6">
+      <p><strong>NAME:</strong> {{AllotmentProfileCtrl.selectedAllotment.name}}</p>
+      <p><strong>BOROUGH:</strong> {{AllotmentProfileCtrl.selectedAllotment.borough}}</p>
+      <p><strong>POSTCODE:</strong> {{AllotmentProfileCtrl.selectedAllotment.nearestPostcode}}</p>
+      <p><strong>LOCATION:</strong> {{AllotmentProfileCtrl.selectedAllotment.location}}</p>
+      <button class="btn" ng-disabled="main.user.allotments.indexOf(AllotmentProfileCtrl.selectedAllotment._id) !== -1" ng-click="AllotmentProfileCtrl.addToMyAllotment()" name="button">Add To My Allotment</button>
+      <button class="btn" ui-sref="featured">Back to Search...</button>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <google-map-a center="AllotmentProfileCtrl.selectedAllotmentCoords" id="goDown"></google-map-a>
+    </div>
+  </div>
+</div>

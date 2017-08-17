@@ -1,0 +1,24 @@
+.allotment-holder {
+  margin: 30px 0;
+}
+
+.btn {
+  width: 100%;
+  background-color: #096903;
+  border: none;
+  border-radius: 0;
+  font-family: Lato;
+  margin: 10px 0;
+  color: white;
+}
+.btn:hover {
+  background-color: darken(#096903, 5%);
+  box-shadow: 1px 1px rgba(0,0,0,0.3);
+  color: white;
+}
+
+hr {
+  border: 1.5px solid black;
+  height: none;
+  margin-bottom: 50px;
+}

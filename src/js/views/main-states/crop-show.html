@@ -1,11 +1,31 @@
-<h2>{{ CropShowCtrl.selectedCrop.name}}</h2>
-<button ng-hide="!main.user" ng-disabled="main.user.forSale.indexOf(CropShowCtrl.selectedCrop._id) !== -1" ng-click="CropShowCtrl.addToForSale()">Add To My Crops For Sale</button>
-<button ui-sref="featured">Back to Search...</button>
-<hr>
-<h4>Available to buy from...</h4>
+<h1>{{ CropShowCtrl.selectedCrop.name}}</h1>
 
-<ul ng-repeat="seller in CropShowCtrl.sellingUsers">
-  <a ui-sref="userShow({id: seller._id})"><li>{{seller.username}}</li></a>
-</ul>
-<hr>
-<button ui-sref="register" ng-show="!main.user">Want to farm {{CropShowCtrl.selectedCrop.name}}'s yourself...</button>
+<div class="crop-holder">
+  <h4>DESCRIPTION</h4>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <hr>
+      <p>{{ CropShowCtrl.selectedCrop.description}}</p>
+      <button class="btn" ng-hide="!main.user" ng-disabled="main.user.forSale.indexOf(CropShowCtrl.selectedCrop._id) !== -1" ng-click="CropShowCtrl.addToForSale()">Add To My Crops For Sale</button>
+      <button class="btn" ui-sref="featured">Back to Search...</button>
+      <hr>
+      <h4>AVAILABLE TO BUY FROM</h4>
+      <div class="search-box row">
+
+        <div ng-repeat="seller in CropShowCtrl.sellingUsers">
+
+          <div class="col-sm-3 seller-card">
+            <a ui-sref="userShow({id: seller._id})"><img src="https://s12.postimg.org/9b1vwsfi5/Far_MERS-01.png">
+            <div >{{seller.username}}</div></a>
+          </div>
+
+        </div>
+
+      </div>
+      <hr ng-show="!main.user">
+      <h4 ng-show="!main.user">FARM THIS CROP YOURSELF</h4>
+      <button class="btn" ui-sref="register" ng-show="!main.user">Want to farm {{CropShowCtrl.selectedCrop.name}}'s yourself...</button>
+      <hr>
+    </div>
+  </div>
+</div>
