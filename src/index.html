@@ -5,6 +5,7 @@
     <title>Project 3</title>
     <base href="/" />
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhlM3q1Q4vIiy_OK40Vj-qISladO4lGU"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <!-- inject:js -->
     <!-- endinject -->
     <!-- inject:css -->
@@ -12,8 +13,10 @@
 
   </head>
   <body ng-controller="MainCtrl as main">
+
     <header>
-      <nav class="navbar navbar-default">
+      <div class="navDiv">
+      <nav class="navbar transparent">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -30,21 +33,21 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li ng-show="main.user">
-                <p class="navbar-text">Welcome, <a ui-sref="userShow({id: main.user._id})">{{ main.user.username }}</a></p>
+                <p class="navbar-text">WELCOME, <a ui-sref="userShow({id: main.user._id})">{{ main.user.username }}</a></p>
               </li>
 <!--WHEN THE MAIN USER IS LOGGED IN HIDE REGISTER  -->
               <li ng-hide="main.user">
-                <a ui-sref="register">Register</a>
+                <a ui-sref="register">REGISTER</a>
               </li>
 <!--WHEN THE MAIN USER IS LOGGED IN HIDE LOGIN  -->
               <li ng-hide="main.user">
-                <a ui-sref="login">Login</a>
+                <a ui-sref="login">LOGIN</a>
+              </li>
+              <li>
+                <a ui-sref="featured">SEARCH</a>
               </li>
               <li ng-show="main.user">
-                <a ui-sref="featured">Featured</a>
-              </li>
-              <li ng-show="main.user">
-                <a ng-click="main.logout()">Logout</a>
+                <a ng-click="main.logout()">LOGOUT</a>
               </li>
             </ul>
 
@@ -52,6 +55,9 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
+      <div class="backgroundImage">
+      </div>
+    </div>
     </header>
     <main class="container" ui-view></main>
   </body>
