@@ -1,9 +1,10 @@
 angular
-  .module('WDI_Group_Project')
-  .directive('googleMap', googleMap);
+.module('WDI_Group_Project')
+.directive('googleMapA', googleMapA);
 
-googleMap.$inject = ['$window', 'Allotment', '$stateParams'];
-function googleMap($window, Allotment, $stateParams) {
+googleMapA.$inject = ['$window', 'Allotment', '$stateParams', 'User'];
+
+function googleMapA($window, Allotment, $stateParams, User) {
   const directive = {
     restrict: 'E',
     replace: true,
@@ -14,8 +15,20 @@ function googleMap($window, Allotment, $stateParams) {
     link($scope, element) {
       const self = this;
 
+      self.seller = $stateParams.id;
+      console.log(self.seller);
+      // if url is /users we use first option, else second
+      // User.get( { id: $stateParams.id }, data => {
+      //   Allotment.get( { id: data.allotments[0]}, response => {
+      //     self.selectedUserCoords = {
+      //       lat: parseFloat(response.latitude),
+      //       lng: parseFloat(response.longitude)
+      //     };
+      //     console.log(self.selectedUserCoords);
+      //   });
+      // } );
 
-      Allotment.get({ id: $stateParams.id }, data => {
+      Allotment.get( { id: $stateParams.id }, data => {
         // console.log(data);
         self.selectedAllotmentCoords = {
           lat: parseFloat(data.latitude),
