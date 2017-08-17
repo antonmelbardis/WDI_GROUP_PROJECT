@@ -11,10 +11,25 @@ function UserShowCtrl(User, $http, $stateParams, CurrentUserService, $state, Cro
   vm.cropArray = [];
   vm.allotmentArray = [];
   vm.seller = $stateParams.id;
+  vm.cropDelete = cropDelete;
 
   vm.goBack = goBack;
   function goBack() {
     window.history.back();
+  }
+
+  function cropDelete(item) {
+    console.log(item._id);
+    Crop
+    .deleteCrop({ id: item._id, userId: vm.user._id})
+    .$promise
+    .then(catfish => {
+      console.log(catfish);
+      vm.cropArray = [];
+      catfish.forSale.forEach(function(crop) {
+        vm.cropArray.push(crop);
+      });
+    });
   }
 
   User.get({id: vm.seller})

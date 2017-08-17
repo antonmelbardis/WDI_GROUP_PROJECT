@@ -1,7 +1,8 @@
 module.exports = {
   index: cropsIndex,
   show: cropsShow,
-  save: cropsSave
+  save: cropsSave,
+  delete: cropDelete
 };
 
 const Crop = require('../models/crop');
@@ -25,16 +26,39 @@ function cropsShow(req, res) {
 
 function cropsSave(req, res) {
   User
+  .findById(req.params.userId)
+  .exec()
+  .then(user => {
+    if (user.forSale.indexOf(req.params.id) === -1) {
+      user.forSale.push(req.params.id);
+      user.save();
+      res.status(200).json(user);
+    } else {
+      res.status(422).json({ message: 'Crop already saved.'});
+    }
+  })
+  .catch(err => res.status(500).json(err));
+}
+
+function cropDelete(req, res) {
+  User
+  .findById(req.params.userId)
+  .exec()
+  .then(user => {
+    console.log(user);
+    console.log(`ID ********* ${req.params.id}`);
+    if(user.forSale.indexOf(req.params.id) > -1) {
+      user.forSale.splice(user.forSale.indexOf(req.params.id), 1);
+      return user.save();
+    }
+  })
+  .then(() => {
+    User
     .findById(req.params.userId)
+    .populate('forSale')
     .exec()
-    .then(user => {
-      if (user.forSale.indexOf(req.params.id) === -1) {
-        user.forSale.push(req.params.id);
-        user.save();
-        res.status(200).json(user);
-      } else {
-        res.status(422).json({ message: 'Crop already saved.'});
-      }
-    })
-    .catch(err => res.status(500).json(err));
+    .then(catfish => {
+      res.status(200).json(catfish);
+    });
+  });
 }
