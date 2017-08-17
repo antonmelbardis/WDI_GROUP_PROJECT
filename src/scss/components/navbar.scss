@@ -1,0 +1,31 @@
+.navbar {
+  border-bottom: solid rgba(255, 255, 255, 0.3) 1px;
+  border-radius: 0px;
+}
+
+.navDiv {
+
+  padding-left: 15px;
+  padding-right: 15px;
+
+  a, p {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Lato', sans-serif;
+  }
+}
+
+body {
+  background-image: url("https://preview.ibb.co/cTGujv/Allotment_Cabbage_01_copy.jpg");
+  background-size: cover;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0);
+    text-shadow: 3px 3px rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.a {
+font-family: 'Lato', sans-serif;
+}
