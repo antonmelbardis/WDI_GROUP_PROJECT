@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="WDI_Group_Project">
-  <head>
-    <meta charset="utf-8">
-    <title>Project 3</title>
-    <base href="/" />
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhlM3q1Q4vIiy_OK40Vj-qISladO4lGU"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
+<head>
+  <meta charset="utf-8">
+  <title>Project 3</title>
+  <base href="/" />
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhlM3q1Q4vIiy_OK40Vj-qISladO4lGU"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
 
-  </head>
-  <body ng-controller="MainCtrl as main">
+</head>
+<body ng-controller="MainCtrl as main">
 
-    <header>
-      <div class="navDiv">
+  <header>
+    <div class="navDiv">
       <nav class="navbar transparent">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,11 +39,11 @@
               <li ng-show="main.user">
                 <p class="navbar-text">WELCOME, <a ui-sref="userShow({id: main.user._id})">{{ main.user.username }}</a></p>
               </li>
-<!--WHEN THE MAIN USER IS LOGGED IN HIDE REGISTER  -->
+              <!--WHEN THE MAIN USER IS LOGGED IN HIDE REGISTER  -->
               <li ng-hide="main.user">
                 <a ui-sref="register">REGISTER</a>
               </li>
-<!--WHEN THE MAIN USER IS LOGGED IN HIDE LOGIN  -->
+              <!--WHEN THE MAIN USER IS LOGGED IN HIDE LOGIN  -->
               <li ng-hide="main.user">
                 <a ui-sref="login">LOGIN</a>
               </li>
@@ -59,7 +63,7 @@
     </div>
     <div class="jumbotronHolder">
     </div>
-    </header>
-    <main class="container" ui-view></main>
-  </body>
+  </header>
+  <main class="container" ui-view></main>
+</body>
 </html>
