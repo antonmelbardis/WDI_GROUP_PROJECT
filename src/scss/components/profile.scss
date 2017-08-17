@@ -1,5 +1,7 @@
 .email-holder {
-  height: 20px;
+position: absolute;
+top: 65%;
+left: 47%;
   text-align: center;
   a {
     color: white;
@@ -8,7 +10,6 @@
 }
 
 .user-holder {
-  margin-top: 280px;
   .btn {
     width: 100%;
     margin-top: 20px;

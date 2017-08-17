@@ -1,6 +1,7 @@
 <h1>{{ UserShowCtrl.seller.firstName }} {{ UserShowCtrl.seller.lastName }}</h1>
 <div class="email-holder">
   <a ng-hide="UserShowCtrl.user._id === UserShowCtrl.seller._id" href="mailto:{{UserShowCtrl.seller.email}}">Contact {{UserShowCtrl.seller.firstName}}</a>
+  <!-- <img class="down-arrow" src="https://s28.postimg.org/dwasytcd9/Down_Arrow_White-01.png"> -->
 </div>
 
 <div class="user-holder">
@@ -14,7 +15,6 @@
           <div><p>{{item.name}}</p></div><button class="btn-delete" ng-show="UserShowCtrl.user._id === UserShowCtrl.seller._id" ng-click="UserShowCtrl.cropDelete( item)">REMOVE</button>
         </div>
       </div>
-
       <button class="btn" ng-click="UserShowCtrl.goBack()">BACK TO RESULTS</button>
       <hr>
       <h4>SELLING HERE</h4>

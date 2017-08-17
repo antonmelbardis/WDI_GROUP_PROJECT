@@ -1,13 +1,16 @@
 .navbar {
+  z-index: 10;
   margin-top: 10px;
   border-bottom: solid rgba(255, 255, 255, 0.3) 1px;
   border-radius: 0px;
   padding-bottom: 10px;
+}
 
+#navLogo {
+  color: white;
 }
 
 .navDiv {
-
   padding-left: 15px;
   padding-right: 15px;
 

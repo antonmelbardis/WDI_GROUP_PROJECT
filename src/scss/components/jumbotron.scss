@@ -1,6 +1,7 @@
 h1 {
   text-align: center;
-  margin-top: 200px;
+  height: 420px;
+  margin-top: 20%;
   font-family: Molle;
   font-size: 80px;
   color: white;
@@ -9,5 +10,18 @@ h1 {
 
 .down-arrow {
   width: 50px;
-  margin: 100px 47%;
+  margin-left: 47%;
+  margin-top: 30px;
+}
+
+.jumbo img {
+  position: absolute;
+  top: -200px;
+  // background: url("https://preview.ibb.co/fwHpHF/Allotment_Images_02_copy.jpg");
+  // background-position: center;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  min-width: 100%;
+  z-index: -1;
+  min-height: 800px;
 }

@@ -21,24 +21,20 @@ function MainCtrl($rootScope, CurrentUserService, $state) {
   }
 }
 
-// $(function(){
-//
-//   const imgArray = [
-//     'https://i.imgur.com/ZCZgqDe.jpg',
-//     'https://i.imgur.com/JcV6jDq.jpg',
-//     'https://i.imgur.com/uL5QQwM.jpg',
-//     'https://i.imgur.com/mfF4HOK.jpg',
-//     'https://i.imgur.com/mmAF0YU.jpg',
-//     'https://i.imgur.com/c0XYzDV.jpg'
-//   ];
-//
-//   $('body').css('background', 'url("https://i.imgur.com/uL5QQwM.jpg")');
-//
-//   setInterval(function(){
-//     const selectedImage = imgArray[Math.floor(Math.random()*imgArray.length)];
-//     $('#vegImg').fadeOut(2000);
-//     $('.jumbotronHolder').prepend(`<img id="vegImg" src="${selectedImage}"/>`);
-//   }, 4000);
-//
-//
-// });
+$(function(){
+
+  const imgArray = [
+    'https://s29.postimg.org/c0vs5hqfb/Allotment_Images-06.png',
+    'https://s17.postimg.org/vpfnsbsm7/Allotment_Images-05.png',
+    'https://preview.ibb.co/bEHQPv/Allotment_Images_03_copy.jpg',
+    'https://s29.postimg.org/fvhwe24s7/Allotment_Images-01.png',
+    'https://s27.postimg.org/67rvr74pv/Allotment_Images-02.png'
+  ];
+  $('.jumbo').prepend(`<img id="vegImg" src="https://s27.postimg.org/67rvr74pv/Allotment_Images-02.png"/>`);
+
+  setInterval(function(){
+    const selectedImage = imgArray[Math.floor(Math.random()*imgArray.length)];
+    $('#vegImg').fadeOut(3000);
+    $('.jumbo').prepend(`<img id="vegImg" src="${selectedImage}"/>`);
+  }, 5000);
+});
