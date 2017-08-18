@@ -60,16 +60,6 @@ function saveDummyData() {
     passwordConfirmation: 'password',
     postcode: 'ec1y4ab',
     myAllotment: []
-  },{
-    username: 'ccatley2',
-    firstName: 'Chris',
-    lastName: 'Catley',
-    email: 'ccatley@gmail.com',
-    password: 'password',
-    passwordConfirmation: 'password',
-    postcode: 'se192ab',
-    myAllotment: [],
-    otherDetails: 'lorem dasdljfdshljfdhsaljkfgfdlsajkfdljksafdshjafjdsfdhskljfksda'
   }])
   .then(users => {
     console.log(`${users.length} users were created`);
