@@ -8,8 +8,18 @@ h1 {
   text-shadow: 2px 2px black;
 }
 
+.logo-holder {
+  text-align: center;
+  margin-top: 5%;
+}
+
 .landing-logo {
-  font-size: 120px;
+  width: 800px;
+}
+
+.landing-logo:hover {
+  width: 804px;
+  cursor:pointer;
 }
 
 .down-arrow {
