@@ -4,5 +4,6 @@ angular
   'ngResource',
   'angular-jwt',
   'ui.bootstrap',
-  'ngAnimate'
+  'ngAnimate',
+  'duScroll'
 ]);

@@ -4,6 +4,7 @@ angular
 
 googleMapA.$inject = ['$window', 'Allotment', '$stateParams', 'User'];
 
+////////////////// 2 CUSTOM GOOGLE-MAP DIRECTIVES 
 function googleMapA($window, Allotment, $stateParams, User) {
   const directive = {
     restrict: 'E',
@@ -29,7 +30,6 @@ function googleMapA($window, Allotment, $stateParams, User) {
       // } );
 
       Allotment.get( { id: $stateParams.id }, data => {
-        // console.log(data);
         self.selectedAllotmentCoords = {
           lat: parseFloat(data.latitude),
           lng: parseFloat(data.longitude)

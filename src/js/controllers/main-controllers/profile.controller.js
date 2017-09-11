@@ -62,6 +62,16 @@ function UserShowCtrl(User, $http, $stateParams, CurrentUserService, $state, Cro
       name: vm.cropName
     };
     vm.cropsFiltered = filterFilter(vm.crops, params);
+
+    if (params.name !== undefined || params.name.lenth < 1) {
+      cropAnimation();
+    }
+  }
+  function cropAnimation() {
+    const duration = 1000;
+    const offset = 100;
+    const someElement = angular.element(document.getElementsByClassName('crop-query')[0]);
+    $document.scrollToElement(someElement, offset, duration);
   }
   function startCropWatch() {
     $scope.$watchGroup([

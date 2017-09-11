@@ -40,7 +40,7 @@
         <div class="search-box">
           <form>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search Crops..." ng-model="UserShowCtrl.cropName">
+              <input type="text" class="form-control crop-query" placeholder="Search Crops..." ng-model="UserShowCtrl.cropName">
             </div>
           </form>
           <div ng-show="UserShowCtrl.cropName.length > 0" class="media search-results" ng-repeat="crop in UserShowCtrl.cropsFiltered">

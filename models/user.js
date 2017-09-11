@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const validator = require('validator');
 
+////////////////// CONNECTED WITH CUSTOM ROUTES IN CROP FACTORY
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, trim: true, required: true},
   firstName: { type: String, trim: true},
@@ -12,11 +13,6 @@ const userSchema = new mongoose.Schema({
   allotments: [{ type: mongoose.Schema.ObjectId, ref: 'Allotment'}],
   forSale: [{ type: mongoose.Schema.ObjectId, ref: 'Crop'}],
   postCode: { type: String}
-
-
-  // buyer: { type: Boolean, required: true},
-  // seller: { type: Boolean, required: true},
-  // profilePicture: { type: String, trim: true}
 });
 
 userSchema

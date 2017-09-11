@@ -16,37 +16,7 @@ function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User, $htt
 
   getUsers();
   getUsersLocations();
-  ////////////////////////////////////////////////////////////////////
 
-  // const options = {
-  //   enableHighAccuracy: true,
-  //   timeout: 5000,
-  //   maximumAge: 0
-  // };
-  // function success(position) {
-  //   const pos = position.coords;
-  //   console.log(`Latitude : ${pos.latitude}`);
-  //   console.log(`Longitude: ${pos.longitude}`);
-  //   vm.origin = `${pos.latitude},${pos.longitude}`;
-  //   vm.destination = '51.419268,-0.075922';
-  //
-  //   const service = new google.maps.DistanceMatrixService();
-  //   service.getDistanceMatrix(
-  //     {
-  //       origins: [vm.origin],
-  //       destinations: [vm.destination],
-  //       travelMode: 'DRIVING'
-  //     }, getDistance);
-  //   function getDistance(response) {
-  //     console.log(response.rows[0].elements[0].distance.text);
-  //   }
-  // }
-  // function error(err) {
-  //   console.warn(`ERROR(${err.code}): ${err.message}`);
-  // }
-  // navigator.geolocation.getCurrentPosition(success, error, options);
-
-  ///////////////////////////////////////////////////////////////////
   function checkSaveState() {
     if (vm.user.forSale.indexOf(vm.selectedCrop._id) !== -1) {
       return true;
@@ -54,6 +24,8 @@ function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User, $htt
       return false;
     }
   }
+
+  ////////////////// CONNECTED WITH CUSTOM ROUTES IN CROP FACTORY
   function addToForSale() {
     Crop
     .saveCrop({ id: $stateParams.id, userId: vm.user._id })
@@ -86,3 +58,35 @@ function CropShowCtrl(Crop, $stateParams, CurrentUserService, $state, User, $htt
     });
   }
 }
+
+////////////////////////////////////////////////////////////////////
+
+// const options = {
+//   enableHighAccuracy: true,
+//   timeout: 5000,
+//   maximumAge: 0
+// };
+// function success(position) {
+//   const pos = position.coords;
+//   console.log(`Latitude : ${pos.latitude}`);
+//   console.log(`Longitude: ${pos.longitude}`);
+//   vm.origin = `${pos.latitude},${pos.longitude}`;
+//   vm.destination = '51.419268,-0.075922';
+//
+//   const service = new google.maps.DistanceMatrixService();
+//   service.getDistanceMatrix(
+//     {
+//       origins: [vm.origin],
+//       destinations: [vm.destination],
+//       travelMode: 'DRIVING'
+//     }, getDistance);
+//   function getDistance(response) {
+//     console.log(response.rows[0].elements[0].distance.text);
+//   }
+// }
+// function error(err) {
+//   console.warn(`ERROR(${err.code}): ${err.message}`);
+// }
+// navigator.geolocation.getCurrentPosition(success, error, options);
+
+///////////////////////////////////////////////////////////////////

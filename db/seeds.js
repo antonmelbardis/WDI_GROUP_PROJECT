@@ -99,11 +99,6 @@ function saveCrops() {
     globalObj.jsonObj = JSON.parse(globalObj.finalString);
     globalObj.jsonObj.crops.forEach(function(crop) {
       saveDbItems(crop);
-      // console.log(crop.name);
-      // console.log(crop.description);
-      // console.log(crop.thumbnail);
-      // console.log(crop.image);
-      // console.log(crop.id);
     });
   }, 500);
 
