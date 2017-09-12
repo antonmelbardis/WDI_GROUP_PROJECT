@@ -1,5 +1,5 @@
 angular
-.module('WDI_Group_Project')
+.module('Allota_London')
 .factory('AuthInterceptor', AuthInterceptor);
 
 AuthInterceptor.$inject = ['API', 'TokenService'];
